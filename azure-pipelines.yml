@@ -4,10 +4,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 steps:
-  - 
+
 - task: AzurePowerShell@5
   inputs:
     azureSubscription: 'Azure Pass - Sponsorship(620b09b4-f6c6-4d43-9d52-fec07dc49c8d)'
     ScriptType: 'InlineScript'
     Inline: 'Invoke-AzDataFactoryV2Pipeline -ResourceGroupName "rg-adf" -DataFactoryName "datafactorys43da264ysthy" -PipelineName "ArmtemplateSampleCopyPipeline "'
-
