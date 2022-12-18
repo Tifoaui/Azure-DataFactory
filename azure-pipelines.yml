@@ -1,19 +1,13 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
 pool:
   vmImage: ubuntu-latest
-
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  - 
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'Azure Pass - Sponsorship(620b09b4-f6c6-4d43-9d52-fec07dc49c8d)'
+    ScriptType: 'InlineScript'
+    Inline: 'Invoke-AzDataFactoryV2Pipeline -ResourceGroupName "rg-adf" -DataFactoryName "datafactorys43da264ysthy" -PipelineName "ArmtemplateSampleCopyPipeline "'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
